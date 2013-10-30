@@ -1,14 +1,15 @@
+'use strict';
+
 var fs = require('fs'),
     path = require('path'),
     _ = require('lodash'),
-    when = require('when'),
     GhostPlugins = require('ghost-plugin'),
     PostPlugin = GhostPlugins.PostPlugin,
     DisqusPlugin;
 
 DisqusPlugin = PostPlugin.extend({
     filters: {
-        "prePostsRender": "addDisqusToPost"
+        'prePostsRender': 'addDisqusToPost'
     },
 
     initialize: function () {
@@ -27,7 +28,7 @@ DisqusPlugin = PostPlugin.extend({
 
         post.html += this.postFooterTemplate({
             // TODO: Load this from ghost instance or something
-            shortname: "Change Me",
+            shortname: 'Change Me',
             post: post
         });
 
