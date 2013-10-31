@@ -28,7 +28,8 @@
     "grunt-jshint2": "~0.1.6",
     "grunt-mocha-cli": "~1.3.0",
     "sinon": "~1.7.3",
-    "should": "~2.0.2"
+    "should": "~2.0.2",
+    "xml2js": "~0.2.8"
   },
   "dependencies": {
     "lodash": "~2.2.1",
