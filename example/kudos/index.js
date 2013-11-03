@@ -2,7 +2,7 @@
 
 var fs = require('fs'),
     path = require('path'),
-    _ = require('lodash'),
+    _ = require('underscore'),
     when = require('when'),
     GhostPlugins = require('ghost-plugin'),
     PostPlugin = GhostPlugins.PostPlugin,
