@@ -5,7 +5,7 @@ var fs = require('fs'),
     path = require('path'),
     sinon = require('sinon'),
     when = require('when'),
-    should = require('should'),
+    //should = require('should'),
     WordpressImport = require('../example/WordpressImport'),
     wxrPath = path.join(__dirname, '..', 'example', 'WordpressImport', 'example.wxr');
 
@@ -20,7 +20,13 @@ describe('WordpressImport', function () {
 
         fakeGhost = {
             registerFilter: sandbox.stub(),
-            unregisterFilter: sandbox.stub()
+            unregisterFilter: sandbox.stub(),
+
+            api: {
+                db: {
+                    importJSONData: sandbox.stub().returns(when.resolve({ posts: []}))
+                }
+            }
         };
 
         fakeImportData = {
@@ -43,8 +49,9 @@ describe('WordpressImport', function () {
 
         plugin.activate();
 
-        plugin.doImport(fakeImportData).then(function (result) {
-            should.exist(result);
+        plugin.doImport(fakeImportData).then(function () {
+
+            fakeGhost.api.db.importJSONData.called.should.equal(true);
 
             done();
         }, done);
