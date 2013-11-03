@@ -1,7 +1,7 @@
 /*global describe, it*/
 'use strict';
 
-var _ = require('lodash'),
+var _ = require('underscore'),
     Plugin = require('../lib/Plugin');
 
 describe('Plugin', function () {
